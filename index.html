@@ -313,11 +313,14 @@
         }
 
         .image-caption {
+            display: block;
+            width: 100%;
             margin-top: 10px;
             font-style: italic;
             color: #666;
             font-size: 0.9rem;
             text-align: center;
+            clear: both;
         }
 
         .technique-images {
@@ -325,6 +328,7 @@
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
             margin: 20px 0;
+            justify-items: center;
         }
 
         .technique-img {
@@ -332,6 +336,10 @@
             background: rgba(255, 255, 255, 0.1);
             border-radius: 15px;
             padding: 15px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .technique-img img {
@@ -369,6 +377,8 @@
             font-weight: 600;
             color: #4a5568;
             font-size: 0.9rem;
+            text-align: center;
+            width: 100%;
         }
 
         .depth-comparison {
@@ -815,10 +825,10 @@
         <nav class="nav-menu">
             <ul>
                 <li><a href="#pengertian">Pengertian & Tujuan</a></li>
-                <li><a href="#teknik-gunting">Teknik Gunting</a></li>
+                <li><a href="#teknik-gunting">Teknik Memegang Gunting</a></li>
                 <li><a href="#garis-desain">Garis Desain</a></li>
                 <li><a href="#struktur-pangkas">Struktur Pangkas</a></li>
-                <li><a href="#alat">Alat & Kosmetik</a></li>
+                <li><a href="#alat">Alat,  & Kosmetik</a></li>
                 <li><a href="#pemeliharaan">Pemeliharaan</a></li>
                 <li><a href="#persiapan">Persiapan Kerja</a></li>
                 <li><a href="#langkah-kerja">Langkah Kerja</a></li>
