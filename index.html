@@ -317,20 +317,20 @@
 
         .image-caption {
             display: block !important;
-            width: 100% !important;
-            margin-top: 10px !important;
+            margin: 8px auto 0 auto !important;
             font-style: italic !important;
             color: #666 !important;
             font-size: 0.9rem !important;
             text-align: center !important;
-            margin-left: auto !important;
-            margin-right: auto !important;
+            width: fit-content !important;
+            max-width: 90% !important;
             clear: both !important;
         }
 
         .kosmetik-table .image-caption {
             font-size: 0.7rem !important;
             margin-top: 5px !important;
+            margin-bottom: 0 !important;
         }
 
         .technique-images {
@@ -383,12 +383,13 @@
          }
 
         .technique-img p {
-            margin-top: 10px;
+            margin: 10px auto 0 auto;
             font-weight: 600;
             color: #4a5568;
             font-size: 0.9rem;
             text-align: center;
-            width: 100%;
+            width: fit-content;
+            display: block;
         }
 
         .depth-comparison {
@@ -765,10 +766,28 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
         }
 
-        .kosmetik-table th, .kosmetik-table td {
+        .kosmetik-table td {
             padding: 20px;
             text-align: center;
             border: 1px solid #E3F2FD;
+            vertical-align: middle;
+        }
+
+        .kosmetik-table td img {
+            display: block;
+            margin: 0 auto 5px auto;
+            max-width: 150px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .kosmetik-table .image-caption {
+            font-size: 0.7rem !important;
+            margin-top: 5px !important;
+            margin-bottom: 0 !important;
+            display: block !important;
+            text-align: center !important;
         }
 
         .kosmetik-table th {
@@ -836,7 +855,7 @@
             <ul>
                 <li><a href="#pengertian">Pengertian & Tujuan</a></li>
                 <li><a href="#teknik-gunting">Teknik Memegang Gunting</a></li>
-                <li><a href="#garis-desain">Garis Desain</a></li>
+                <li><a href="#garis-desain">Garis Pola Pangkas Dasar</a></li>
                 <li><a href="#struktur-pangkas">Struktur Pangkas</a></li>
                 <li><a href="#alat">Alat,Bahan,Lenan,& Kosmetik</a></li>
                 <li><a href="#pemeliharaan">Pemeliharaan</a></li>
@@ -1268,13 +1287,11 @@
                 <div class="technique-images">
                     <div class="technique-img">
                         <img src="images/12.jpg" alt="Hasil Pemangkasan Oval 1">
-                        <p style="text-align:center;">Before</p>
-                        <p class="image-caption">(Data Pribadi, 2026)</p>
+                        <p class="image-caption">Before <br> (Data Pribadi, 2026)</p>
                     </div>
                     <div class="technique-img">
                         <img src="images/13.jpg" alt="Hasil Pemangkasan Oval 2">
-                        <p style="text-align:center;">Before</p>
-                        <p class="image-caption">(Data Pribadi, 2026)</p>
+                        <p class="image-caption">After <br> (Data Pribadi, 2026)</p>
                     </div>
                 </div>
 
