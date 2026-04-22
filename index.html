@@ -286,15 +286,20 @@
         .nav-menu a {
             text-decoration: none;
             color: #1565C0;
+            background: #E3F2FD; /* Warna latar belakang default */
             font-weight: 600;
             padding: 8px 16px;
             border-radius: 20px;
             transition: all 0.3s ease;
+            border: 1px solid #BBDEFB; /* Garis tepi halus */
         }
 
         .nav-menu a:hover {
             background: #1E88E5;
             color: white;
+            border-color: #1E88E5;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(30, 136, 229, 0.2);
         }
         .image-container {
             display: flex !important;
@@ -610,6 +615,9 @@
                 display: block;
                 padding: 10px 15px;
                 font-size: 0.9rem;
+                background: #E3F2FD;
+                border-radius: 10px;
+                margin: 2px 0;
             }
 
             .highlight-techniques {
