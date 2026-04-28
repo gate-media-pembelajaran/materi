@@ -9,6 +9,18 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            max-width: 100%;
+        }
+
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            word-wrap: break-word;
+            overflow-wrap: anywhere;
+            -webkit-text-size-adjust: 100%;
         }
 
         body {
@@ -17,12 +29,27 @@
             color: #333;
             background-color: #E3F2FD; /* Eyes Blue / Light Blue */
             min-height: 100vh;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            word-break: break-word;
+            -webkit-text-size-adjust: 100%;
+            hyphens: auto;
+            -webkit-hyphens: auto;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            width: 100%;
+        }
+
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 20px 0;
+            border-radius: 15px;
         }
 
         .hero {
@@ -48,7 +75,9 @@
                     drop-shadow(0 4px 0 #64B5F6)
                     drop-shadow(0 6px 4px rgba(0,0,0,0.2));
             position: relative;
-            display: inline-block;
+            display: block; /* Changed from inline-block to prevent overflow */
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .hero p {
@@ -78,6 +107,11 @@
             margin-bottom: 20px;
             border-bottom: 3px solid #64B5F6;
             padding-bottom: 10px;
+            display: block;
+            width: 100%;
+            word-wrap: break-word;
+            overflow-wrap: anywhere;
+            word-break: break-word;
         }
 
         .card h3 {
@@ -85,6 +119,11 @@
             font-size: 1.5rem;
             margin: 25px 0 15px 0;
             position: relative;
+            display: block;
+            width: 100%;
+            word-wrap: break-word;
+            overflow-wrap: anywhere;
+            word-break: break-word;
         }
 
         .card h3:before {
@@ -96,6 +135,11 @@
             font-size: 1.2rem;
             margin: 20px 0 10px 0;
             font-weight: 600;
+            display: block;
+            width: 100%;
+            word-wrap: break-word;
+            overflow-wrap: anywhere;
+            word-break: break-word;
         }
 
         .card h5 {
@@ -108,7 +152,10 @@
         .card p, .card li {
             color: #666;
             margin-bottom: 10px;
-            text-align: justify;
+            text-align: left; /* Changed from justify to prevent overflow issues on small screens */
+            word-wrap: break-word;
+            overflow-wrap: anywhere;
+            word-break: break-word;
         }
 
         .card ul, .card ol {
@@ -265,7 +312,7 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 30px;
+            gap: 15px; /* Reduced gap from 30px */
             margin: 0;
             padding: 0;
         }
@@ -273,12 +320,17 @@
         .nav-menu a {
             text-decoration: none;
             color: #1565C0;
-            background: #E3F2FD; /* Warna latar belakang default */
+            background: #E3F2FD;
             font-weight: 600;
-            padding: 8px 16px;
+            padding: 8px 12px; /* Reduced padding from 8px 16px */
             border-radius: 20px;
             transition: all 0.3s ease;
-            border: 1px solid #BBDEFB; /* Garis tepi halus */
+            border: 1px solid #BBDEFB;
+            font-size: 0.9rem; /* Added default font size */
+            word-wrap: break-word;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+            display: inline-block;
         }
 
         .nav-menu a:hover {
@@ -444,13 +496,14 @@
             }
 
             .hero {
-                padding: 40px 20px;
+                padding: 60px 20px;
                 margin-bottom: 30px;
                 border-radius: 15px;
             }
 
             .hero h1 {
                 font-size: 2.2rem;
+                line-height: 1.2;
             }
             
             .hero p {
@@ -465,285 +518,306 @@
 
             .card h2 {
                 font-size: 1.6rem;
+                overflow-wrap: break-word;
             }
 
             .card h3 {
                 font-size: 1.3rem;
+                overflow-wrap: break-word;
             }
 
             .card h4 {
                 font-size: 1.1rem;
+                overflow-wrap: break-word;
             }
             
             .nav-menu {
                 border-radius: 15px;
-                padding: 20px;
+                padding: 15px;
                 position: relative;
                 top: auto;
-            }
-
-            .nav-menu ul {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .highlight-techniques {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .technique-card {
-                padding: 20px;
-            }
-
-            .tools-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 15px;
-            }
-
-            .tool-item {
-                padding: 15px;
-            }
-
-            .process-step {
-                padding: 20px;
-                margin: 15px 0;
-            }
-
-            .process-step:before {
-                display: none;
-            }
-        }
-
-        /* Mobile Responsive for Android */
-        @media screen and (max-width: 480px) {
-            .container {
-                padding: 10px;
-            }
-
-            .hero {
-                padding: 120px 15px;
-                margin-bottom: 20px;
-                border-radius: 15px;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-                letter-spacing: 2px;
-                background: linear-gradient(to bottom, #0D47A1 0%, #1976D2 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                filter: drop-shadow(0 1px 0 #90CAF9) 
-                        drop-shadow(0 2px 0 #64B5F6)
-                        drop-shadow(0 3px 2px rgba(0,0,0,0.2));
-            }
-            
-            .hero p {
-                font-size: 0.9rem;
-                margin-bottom: 20px;
-            }
-            
-            .card {
-                padding: 15px;
-                margin-bottom: 15px;
-                border-radius: 15px;
-            }
-
-            .card h2 {
-                font-size: 1.4rem;
-                margin-bottom: 15px;
-            }
-
-            .card h3 {
-                font-size: 1.2rem;
-                margin: 20px 0 10px 0;
-            }
-
-            .card h3:before {
-                display: none;
-            }
-
-            .card h4 {
-                font-size: 1rem;
-                margin: 15px 0 8px 0;
-            }
-
-            .card h5 {
-                font-size: 1rem;
-                margin: 12px 0 6px 0;
-            }
-
-            .card p, .card li {
-                font-size: 0.85rem;
-                line-height: 1.5;
-                margin-bottom: 8px;
-            }
-
-            .card ul, .card ol {
-                padding-left: 20px;
-                margin-bottom: 12px;
-            }
-            
-            .nav-menu {
-                border-radius: 10px;
-                padding: 15px 10px;
-                position: relative;
-                top: auto;
-                margin-bottom: 20px;
+                margin-bottom: 25px;
             }
 
             .nav-menu ul {
                 flex-direction: column;
                 gap: 10px;
-                text-align: center;
             }
 
             .nav-menu a {
                 display: block;
-                padding: 10px 15px;
-                font-size: 0.9rem;
-                background: #E3F2FD;
-                border-radius: 10px;
-                margin: 2px 0;
+                text-align: center;
+                width: 100%;
             }
 
             .highlight-techniques {
                 grid-template-columns: 1fr;
-                gap: 12px;
-                margin: 20px 0;
+                gap: 15px;
             }
 
             .technique-card {
-                padding: 15px;
-                border-radius: 12px;
-            }
-
-            .technique-card h4 {
-                font-size: 1.1rem;
-                margin-bottom: 10px;
-            }
-
-            .technique-card p {
-                font-size: 0.9rem;
-            }
-
-            .tools-grid {
-                grid-template-columns: 1fr;
-                gap: 12px;
-                margin: 20px 0;
-            }
-
-            .tool-item {
-                padding: 12px;
-                border-radius: 10px;
-            }
-
-            .tool-item h5 {
-                font-size: 1rem;
-                margin-bottom: 6px;
-            }
-
-            .tool-item p {
-                font-size: 0.8rem;
-            }
-
-            .tool-item img {
-                max-width: 120px;
-                margin-bottom: 10px;
-            }
-
-            .process-step {
-                padding: 15px;
-                margin: 15px 0;
-                border-radius: 12px;
-            }
-
-            .process-step:before {
-                display: none;
-            }
-
-            .process-step h5 {
-                font-size: 1rem;
-                margin-bottom: 8px;
-            }
-
-            .process-step p {
-                font-size: 0.85rem;
-            }
-
-            .process-step ul {
-                padding-left: 15px;
-            }
-
-            .process-step li {
-                font-size: 0.8rem;
-                margin-bottom: 6px;
+                padding: 20px;
             }
 
             .technique-images {
                 grid-template-columns: 1fr;
                 gap: 15px;
-                margin: 15px 0;
             }
 
-            .technique-img {
-                padding: 12px;
-                border-radius: 12px;
-            }
-
-            .technique-img p {
-                font-size: 0.8rem;
-                margin-top: 8px;
+            .tools-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
             }
 
             .depth-comparison {
                 grid-template-columns: 1fr;
-                gap: 12px;
-                margin: 15px 0;
             }
 
-            .depth-item {
+            .tool-item {
                 padding: 15px;
-                border-radius: 12px;
             }
 
-            .depth-item h5 {
-                font-size: 1rem;
-                margin-bottom: 8px;
-            }
-
-            .depth-item p {
-                font-size: 0.85rem;
-            }
-
-            .image-container {
+            .process-step {
+                padding: 20px;
                 margin: 15px 0;
-                padding: 12px;
-                border-radius: 12px;
+            }
+        }
+
+        /* Mobile Responsive */
+        @media screen and (max-width: 480px) {
+            .container {
+                padding: 8px; /* Reduced from 10px */
+                width: 100%;
+                /* Removed overflow-x: hidden to allow table-responsive scroll */
             }
 
-            .image-container img {
-                border-radius: 8px;
+            .hero {
+                padding: 30px 10px; /* Reduced from 40px 15px */
+                margin-bottom: 20px;
             }
 
-            .image-caption {
+            .hero h1 {
+                font-size: 1.3rem; /* Slightly smaller */
+                letter-spacing: 0.5px;
+                line-height: 1.2;
+                word-break: break-word;
+                overflow-wrap: anywhere;
+                filter: none; /* Removed heavy shadows on mobile */
+            }
+            
+            .hero p {
                 font-size: 0.8rem;
-                margin-top: 8px;
+            }
+            
+            .card {
+                padding: 12px; /* Reduced from 15px */
+                margin-bottom: 15px;
+                width: 100%;
+                border-radius: 12px;
             }
 
-            .warning-box, .info-box {
-                margin: 15px 0;
-                padding: 15px;
+            .card h2 {
+                font-size: 1.1rem;
+                word-break: break-word;
+                overflow-wrap: anywhere;
+                margin-bottom: 15px;
+            }
+
+            .card h3 {
+                font-size: 0.95rem;
+                word-break: break-word;
+                overflow-wrap: anywhere;
+            }
+
+            .card h4 {
+                font-size: 0.9rem;
+                word-break: break-word;
+                overflow-wrap: anywhere;
+            }
+
+            .card p, .card li {
+                font-size: 0.8rem;
+                line-height: 1.4;
+                word-break: break-word;
+                overflow-wrap: anywhere;
+            }
+
+            .nav-menu {
+                padding: 8px;
                 border-radius: 10px;
             }
 
-            .warning-box h4, .info-box h4 {
-                font-size: 1rem;
-                margin-bottom: 8px;
+            .nav-menu ul {
+                gap: 5px;
             }
 
-            .warning-box p, .info-box p {
-                font-size: 0.85rem;
+            .nav-menu a {
+                font-size: 0.7rem;
+                padding: 5px 6px;
+            }
+
+            .technique-img {
+                padding: 5px;
+            }
+
+            .technique-img img, 
+            .image-container img {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+
+            .image-caption {
+                font-size: 0.65rem !important;
+                max-width: 100% !important;
+            }
+
+            /* Stacked Table for Mobile */
+            .kosmetik-table, 
+            .kosmetik-table thead, 
+            .kosmetik-table tbody, 
+            .kosmetik-table tr, 
+            .kosmetik-table td {
+                display: block;
+                width: 100%;
+            }
+
+            .kosmetik-table thead {
+                display: none;
+            }
+
+            .kosmetik-table tr {
+                margin-bottom: 25px;
+                border: 1px solid #BBDEFB;
+                border-radius: 15px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+                background: white;
+                overflow: hidden;
+            }
+
+            .kosmetik-table td {
+                text-align: left !important;
+                padding: 12px 15px !important;
+                border: none !important;
+                border-bottom: 1px solid #E3F2FD !important;
+                font-size: 0.85rem !important;
+                width: 100% !important;
+            }
+
+            .kosmetik-table td:last-child {
+                border-bottom: none !important;
+            }
+
+            /* Labels for stacked cells */
+            .kosmetik-table td:nth-child(1) {
+                background: #E3F2FD;
+                font-weight: bold;
+                color: #0D47A1;
+                display: flex;
+                justify-content: space-between;
+            }
+            .kosmetik-table td:nth-child(1):after {
+                content: "Item Detail";
+                font-size: 0.7rem;
+                text-transform: uppercase;
+                opacity: 0.7;
+            }
+
+            .kosmetik-table td:nth-child(2):before {
+                content: "Nama:";
+                display: block;
+                font-size: 0.7rem;
+                color: #1565C0;
+                text-transform: uppercase;
+                margin-bottom: 4px;
+                font-weight: 600;
+            }
+
+            .kosmetik-table td:nth-child(3):before {
+                content: "Gambar:";
+                display: block;
+                font-size: 0.7rem;
+                color: #1565C0;
+                text-transform: uppercase;
+                margin-bottom: 8px;
+                font-weight: 600;
+            }
+
+            .kosmetik-table td:nth-child(4):before {
+                content: "Kegunaan:";
+                display: block;
+                font-size: 0.7rem;
+                color: #1565C0;
+                text-transform: uppercase;
+                margin-bottom: 4px;
+                font-weight: 600;
+            }
+
+            .kosmetik-table td img {
+                max-width: 120px !important;
+                margin: 0 auto !important; /* Centered */
+                display: block !important;
+                border-radius: 8px;
+            }
+
+            .kosmetik-table .image-caption {
+                text-align: center !important; /* Centered */
+                margin-top: 8px !important;
+                font-size: 0.75rem !important;
+                display: block !important;
+            }
+
+            .kosmetik-table h5 {
+                margin: 0 !important;
+                font-size: 1rem !important;
+            }
+
+            .process-step {
+                padding: 12px;
+                margin: 10px 0;
+            }
+
+            .info-box, .warning-box {
+                padding: 12px;
+                margin: 15px 0;
+            }
+            
+            /* Force images in specific sections to be responsive */
+            #teknik-gunting .technique-img img,
+            #garis-desain .image-container img,
+            #struktur-pangkas .image-container img,
+            #persiapan .image-container img,
+            #langkah-kerja .technique-img img,
+            #langkah-kerja .image-container img {
+                max-width: 100% !important;
+            }
+        }
+
+        /* Extra Small Mobile */
+        @media screen and (max-width: 360px) {
+            .container {
+                padding: 5px;
+            }
+            
+            .hero h1 {
+                font-size: 1.1rem;
+                letter-spacing: 0;
+            }
+
+            .card {
+                padding: 10px 8px;
+            }
+
+            .card h2 {
+                font-size: 1rem;
+            }
+
+            .card h3 {
+                font-size: 0.9rem;
+            }
+
+            .nav-menu a {
+                font-size: 0.6rem;
+                padding: 4px 5px;
             }
         }
 
@@ -758,7 +832,7 @@
         }
 
         .kosmetik-table tbody tr:nth-child(even) {
-            background-color: #E3F2FD; /* Warna biru muda selang-seling */
+            background-color: #E3F2FD;
         }
 
         .kosmetik-table td {
@@ -769,7 +843,8 @@
         }
 
         .kosmetik-table td:nth-child(4) {
-            text-align: justify; /* Rata kiri kanan untuk kolom kegunaan */
+            text-align: left; /* Changed from justify to prevent overflow on mobile */
+            word-break: break-word;
         }
 
         .kosmetik-table td img {
@@ -793,53 +868,12 @@
             background-color: #BBDEFB;
             color: #0D47A1;
             font-weight: 600;
-        }
-
-        .kosmetik-table img {
-            max-width: 150px;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 15px;
         }
 
         .kosmetik-table h5 {
             margin-top: 10px;
             color: #1565C0;
-        }
-
-        /* Extra Small Mobile */
-        @media screen and (max-width: 360px) {
-            .container {
-                padding: 8px;
-            }
-
-            .hero h1 {
-                font-size: 1.6rem;
-            }
-
-            .card {
-                padding: 12px;
-            }
-
-            .card h2 {
-                font-size: 1.3rem;
-            }
-
-            .card h3 {
-                font-size: 1.1rem;
-            }
-
-            .nav-menu {
-                padding: 12px 8px;
-            }
-
-            .technique-card, .tool-item, .process-step {
-                padding: 12px;
-            }
-
-            .tool-item img {
-                max-width: 100px;
-            }
         }
     </style>
 </head>
@@ -856,7 +890,7 @@
                 <li><a href="#teknik-gunting">Teknik Memegang Gunting</a></li>
                 <li><a href="#garis-desain">Garis Pola Pangkas Dasar</a></li>
                 <li><a href="#struktur-pangkas">Struktur Pangkas</a></li>
-                <li><a href="#alat">Alat,Bahan,Lenan,& Kosmetik</a></li>
+                <li><a href="#alat">Alat, Bahan, Lenan, & Kosmetik</a></li>
                 <li><a href="#pemeliharaan">Pemeliharaan</a></li>
                 <li><a href="#persiapan">Persiapan Kerja</a></li>
                 <li><a href="#langkah-kerja">Langkah Kerja</a></li>
@@ -893,11 +927,11 @@
                 <div class="technique-images">
                     <div class="technique-img">
                         <img src="images/memegang-gunting-2.png" alt="Cara Memegang Gunting Saat Hendak Menggunting Rambut">
-                        <p class="image-caption">Cara Memegang Gunting Saat Hendak Menggunting <br> (Data Pribadi, 2026)</p>
+                        <p class="image-caption">Cara Memegang Gunting Saat Hendak Menggunting <br> (Dokumentasi Pribadi, 2026)</p>
                     </div>
                     <div class="technique-img">
                         <img src="images/memegang-gunting-1.png" alt="Cara Memegang Gunting Setelah Selesai Menggunting Rambut">
-                        <p class="image-caption">Cara Memegang Gunting Setelah Selesai Menggunting <br> (Data Pribadi, 2026)</p>
+                        <p class="image-caption">Cara Memegang Gunting Setelah Selesai Menggunting <br> (Dokumentasi Pribadi, 2026)</p>
                     </div>
                 </div>
 
@@ -915,21 +949,21 @@
                 <p>Garis pola pemangkasan solid merupakan garis tarikan lurus yang mana merupakan patokan atau gaide line untuk terjadinya hasil pemangkasan rambut solid, setiap section demi section rambut yang diambil mulai dari bawah hingga atas membentuk garis solid.</p>
                 <div class="image-container">
                     <img src="images/a.jpg" alt="Garis desain pola pangkasan Solid">
-                    <p class="image-caption">Garis Desain Pola Pangkasan Solid <br> (Data Pribadi, 2026)</p>
+                    <p class="image-caption">Garis Desain Pola Pangkasan Solid <br> (Sari, 2024)</p>
                 </div>
                 
                 <h3>b. Garis Desain Pola Pangkasan Segi</h3>
                 <p>Garis desain pola pemangkasan Segi merupakan garis tarikan berbentuk V yang mana merupakan patokan atau gaide line untuk terjadinya hasil pemangkasan rambut segi, setiap section demi section rambut yang diambil mulai dari bawah hingga atas membentuk garis V.</p>
                 <div class="image-container">
                     <img src="images/c.jpg" alt="Garis desain pola pangkasan Segi">
-                    <p class="image-caption">Garis Desain Pola Pangkasan Segi <br> (Data Pribadi, 2026)</p>
+                    <p class="image-caption">Garis Desain Pola Pangkasan Segi <br> (Sari, 2024)</p>
                 </div>
                 
                 <h3>c. Garis Desain Pola Pangkasan Oval</h3>
                 <p>Garis desain pola pemangkasan Oval merupakan garis tarikan berbentuk oval or melengkuk kebawah yang mana merupakan patokan atau gaide line untuk terjadinya hasil pemangkasan rambut Oval, setiap section demi section rambut yang diambil mulai dari bawah hingga atas membentuk garis oval atau melengkuk kebawah.</p>
                 <div class="image-container">
                     <img src="images/b.jpg" alt="Garis desain pola pangkasan Oval">
-                    <p class="image-caption">Garis Desain Pola Pangkasan Oval <br> (Data Pribadi, 2026)</p>
+                    <p class="image-caption">Garis Desain Pola Pangkasan Oval <br> (Sari, 2024)</p>
                 </div>
             </div>
 
@@ -944,7 +978,7 @@
                         <p>Pemangkasan dengan garis pola pemangkasan paralel dengan hasil akhir pangkasan berupa garis lurus, sama panjang antara rambut belakang, samping dan depan.</p>
                         <div class="image-container">
                             <img src="images/solid.png" alt="Pemangkasan Rambut Datar Pola Garis Pangkasan Lurus / Solid">
-                            <p class="image-caption">Struktur Pemangkasan Rambut Solid <br> (Data Pribadi, 2026)</p>
+                            <p class="image-caption">Struktur Pemangkasan Rambut Solid <br> (Dokumentasi Pribadi, 2026)</p>
                         </div>
                     </div>
 
@@ -953,7 +987,7 @@
                         <p>Pemangkasan rambut ini menghasilkan pemangkasan rambut pada bagian depan dan samping pendek dan pada bagian belakang panjang meruncing sehingga kalau disatukan penataan rambut kebelakang semuanya tanpak seperti berbentuk garis "V".</p>
                         <div class="image-container">
                             <img src="images/segi.png" alt="Pemangkasan Rambut Datar dengan Pola Garis Pangkasan Rambut Segi">
-                            <p class="image-caption">Struktur Pemangkasan Rambut Segi <br> (Data Pribadi, 2026)</p>
+                            <p class="image-caption">Struktur Pemangkasan Rambut Segi <br> (Dokumentasi Pribadi, 2026)</p>
                         </div>
                     </div>
 
@@ -963,11 +997,11 @@
                         <div class="technique-images">
                             <div class="technique-img">
                                 <img src="images/oval.png" alt="Struktur Pemangkasan Rambut Oval 1">
-                                <p class="image-caption">Struktur Pemangkasan Rambut Oval 1 <br> (Data Pribadi, 2026)</p>
+                                <p class="image-caption">Struktur Pemangkasan Rambut Oval 1 <br> (Dokumentasi Pribadi, 2026)</p>
                             </div>
                             <div class="technique-img">
                                 <img src="images/oval-2.jpeg" alt="Struktur Pemangkasan Rambut Oval 2">
-                                <p class="image-caption">Struktur Pemangkasan Rambut Oval 2 <br> (Data Pribadi, 2026)</p>
+                                <p class="image-caption">Struktur Pemangkasan Rambut Oval 2 <br> (Dokumentasi Pribadi, 2026)</p>
                             </div>
                         </div>
                     </div>
@@ -978,6 +1012,7 @@
                 <h2>Alat Yang Digunakan Dalam Pemangkasan Rambut</h2>
                 <p>Berikut adalah alat yang digunakan dalam Pemangkasan Rambut antara lain:</p>
                 
+            <div class="table-responsive">
                 <table class="kosmetik-table">
                     <thead>
                         <tr>
@@ -993,7 +1028,7 @@
                             <td><h5>Sisir Pangkas Rambut</h5></td>
                             <td>
                                 <img src="images/sisir-pangkas-1.png" alt="Sisir Pangkas">
-                                <p class="image-caption">Sisir Pangkas <br> (Data Pribadi, 2026)</p>
+                                <p class="image-caption">Sisir Pangkas <br> (Sumber: Sari, 2023)</p>
                             </td>
                             <td>Berfungsi untuk membantu proses pengambilan rambut step by step rambut yang akan di gunting.</td>
                         </tr>
@@ -1002,7 +1037,7 @@
                             <td><h5>Gunting Pemangkasan Rambut</h5></td>
                             <td>
                                 <img src="images/gunting-pangkas.png" alt="Gunting Pemangkasan">
-                                <p class="image-caption">Gunting Pemangkasan <br> (Data Pribadi, 2026)</p>
+                                <p class="image-caption">Gunting Pemangkasan <br> (Sumber: Katarina, 2023)</p>
                             </td>
                             <td>Alat mutlak berbahan stainless steel.</td>
                         </tr>
@@ -1011,7 +1046,7 @@
                             <td><h5>Jepit Bebek</h5></td>
                             <td>
                                 <img src="images/jepit-bebek.png" alt="Jepit Bebek">
-                                <p class="image-caption">Jepit Bebek <br> (Data Pribadi, 2026)</p>
+                                <p class="image-caption">Jepit Bebek <br> (Sumber: Efrianova, 2023)</p>
                             </td>
                             <td>Berfungsi untuk menjepit bagian rambut yang hendak digunting, membantu dalam membuat desain pola Pemangkasan Rambut.</td>
                         </tr>
@@ -1020,7 +1055,7 @@
                             <td><h5>Kain Atau Cap Pemangkasan Rambut</h5></td>
                             <td>
                                 <img src="images/cape-pangkas.png" alt="Cape Pangkas">
-                                <p class="image-caption">Cape Pangkas <br> (Data Pribadi, 2026)</p>
+                                <p class="image-caption">Cape Pangkas <br> (Sumber: Sari, 2023)</p>
                             </td>
                             <td>Melindungi pakaian dari sisa guntingan rambut dan agar pakaian tidak basah saat rambut dibasahi.</td>
                         </tr>
@@ -1029,7 +1064,7 @@
                             <td><h5>Botol Spryer</h5></td>
                             <td>
                                 <img src="images/botol-spray.png" alt="Botol Spray">
-                                <p class="image-caption">Botol Spryer <br> (Data Pribadi, 2026)</p>
+                                <p class="image-caption">Botol Spryer <br> (Sumber: Katarina, 2023)</p>
                             </td>
                             <td>Wadah air untuk membasahi batang rambut pelanggan guna mempermudah proses pemangkasan dan mendapatkan hasil yang rapi.</td>
                         </tr>
@@ -1038,7 +1073,7 @@
                             <td><h5>Sikat/Brush Pembersih Pemangkasan Rambut</h5></td>
                             <td>
                                 <img src="images/sikat-pembersih.png" alt="Sikat Pembersih">
-                                <p class="image-caption">Sikat Pembersih <br> (Data Pribadi, 2026)</p>
+                                <p class="image-caption">Sikat Pembersih <br> (Sumber: Efrianova, 2023)</p>
                             </td>
                             <td>Menghilangkan atau mengangkat sisa-sisa rambut yang telah digunting pada pundak, leher, dan pakaian.</td>
                         </tr>
@@ -1047,7 +1082,7 @@
                             <td><h5>Sisir Setengah Blow</h5></td>
                             <td>
                                 <img src="images/sisir-setengah-blow.png" alt="Sisir Setengah Blow">
-                                <p class="image-caption">Sisir Setengah Blow <br> (Data Pribadi, 2026)</p>
+                                <p class="image-caption">Sisir Setengah Blow <br> (Sumber: Sari, 2023)</p>
                             </td>
                             <td>Dipergunakan untuk menata atau mengeblow rambut setelah digunting guna melihat hasil desain pemangkasan.</td>
                         </tr>
@@ -1056,7 +1091,7 @@
                             <td><h5>Sisir Blow Penuh</h5></td>
                             <td>
                                 <img src="images/sisir-blow.png" alt="Sisir Blow">
-                                <p class="image-caption">Sisir Blow Penuh <br> (Data Pribadi, 2026)</p>
+                                <p class="image-caption">Sisir Blow Penuh <br> (Sumber: Katarina, 2023)</p>
                             </td>
                             <td>Berfungsi untuk menata atau mengeblow rambut dengan hasil yang lebih maksimal.</td>
                         </tr>
@@ -1065,7 +1100,7 @@
                             <td><h5>Hair Dryer</h5></td>
                             <td>
                                 <img src="images/hair-dryer.png" alt="Hair Dryer">
-                                <p class="image-caption">Hair Dryer <br> (Data Pribadi, 2026)</p>
+                                <p class="image-caption">Hair Dryer <br> (Sumber: Efrianova, 2023)</p>
                             </td>
                             <td>Mengeringkan batang rambut dan membantu membentuk batang rambut sesuai penataannya.</td>
                         </tr>
@@ -1074,33 +1109,36 @@
                             <td><h5>Babyliss </h5></td>
                             <td>
                                 <img src="images/catokan.png" alt="Catokan">
-                                <p class="image-caption">Babyliss <br> (Data Pribadi, 2026)</p>
+                                <p class="image-caption">Babyliss <br> (Sumber: Sari, 2023)</p>
                             </td>
                             <td>Digunakan untuk meluruskan atau membentuk rambut agar terlihat lebih rapi dan berkilau setelah pemangkasan.</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+        </div>
+        </div>
 
             <div class="card" id="kosmetik">
                 <h2>Kosmetik Pemangkasan Rambut</h2>
                 <p>Berikut adalah kosmetik yang digunakan dalam proses Pemangkasan Rambut:</p>
-                <table class="kosmetik-table">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Nama Kosmetik</th>
-                            <th>Gambar</th>
-                            <th>Kegunaan</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                <div class="table-responsive">
+                    <table class="kosmetik-table">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Kosmetik</th>
+                                <th>Gambar</th>
+                                <th>Kegunaan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                         <tr>
                             <td>1</td>
                             <td><h5>Shampoo</h5></td>
                             <td>
                                 <img src="images/shampoo.png" alt="Shampoo">
-                                <p class="image-caption">Shampoo <br> (Data Pribadi, 2026)</p>
+                                <p class="image-caption">Shampoo <br> (Sumber: Katarina, 2023)</p>
                             </td>
                             <td>Membersihkan kulit kepala dan rambut dari kotoran sebelum pemangkasan.</td>
                         </tr>
@@ -1109,7 +1147,7 @@
                             <td><h5>Conditioner</h5></td>
                             <td>
                                 <img src="images/conditioner.png" alt="Conditioner">
-                                <p class="image-caption">Conditioner <br> (Data Pribadi, 2026)</p>
+                                <p class="image-caption">Conditioner <br> (Sumber: Efrianova, 2023)</p>
                             </td>
                             <td>Melembutkan rambut agar lebih mudah disisir dan diatur saat proses pemangkasan.</td>
                         </tr>
@@ -1118,15 +1156,16 @@
                             <td><h5>Hair Tonic</h5></td>
                             <td>
                                 <img src="images/hair-tonic.png" alt="Hair Tonic">
-                                <p class="image-caption">Hair Tonic <br> (Data Pribadi, 2026)</p>
+                                <p class="image-caption">Hair Tonic <br> (Sumber: Sari, 2023)</p>
                             </td>
                             <td>Memberikan nutrisi pada kulit kepala dan memperkuat akar rambut setelah proses pemangkasan.</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+        </div>
 
-            <div class="card" id="pemeliharaan">
+        <div class="card" id="pemeliharaan">
                 <h2>Pemeliharaan Peralatan dan Perlengkapan Kerja</h2>
                 
                 <h3>a. Sanitasi Peralatan</h3>
@@ -1150,7 +1189,7 @@
                         <p>Persiapan area kerja dimaksudkan untuk menyiapkan kondisi lingkungan kerja yang bersih dan terawat. Beberapa hal yang perlu diperhatikan ialah:</p>
                         <div class="image-container">
                             <img src="images/Persiapan_area_kerja.jpeg" alt="Persiapan Area Kerja">
-                            <p class="image-caption">Persiapan Area Kerja <br> (Data Pribadi, 2026)</p>
+                            <p class="image-caption">Persiapan Area Kerja <br> (Dokumentasi Pribadi, 2026)</p>
                         </div>
                         <ul>
                             <li>Ruangan dan lantai dalam kondisi yang bersih.</li>
@@ -1165,7 +1204,7 @@
                         <p>Seorang hairstylist juga harus mempersiapkan dirinya untuk bertemu dengan pelanggan. Hal yang perlu dipersiapkan hairstylist adalah:</p>
                         <div class="image-container">
                             <img src="images/persiapan_pribadi.jpeg" alt="Persiapan Pribadi">
-                            <p class="image-caption">Persiapan Pribadi <br> (Data Pribadi, 2026)</p>
+                            <p class="image-caption">Persiapan Pribadi <br> (Dokumentasi Pribadi, 2026)</p>
                         </div>
                         <ul>
                             <li>Memakai baju kerja dengan rapi dan bersih.</li>
@@ -1181,7 +1220,7 @@
                         <p>Tujuan dilakukannya persiapan ini agar memudahkan hairstylish dalam melakukan pekerjaanya serta memberikan kenyamanan dan keamanan bagi client itu sendiri. Adapun yang perlu diperhatikan yaitu:</p>
                         <div class="image-container">
                             <img src="images/persiapan_klien.jpeg" alt="Persiapan Client">
-                            <p class="image-caption">Persiapan Client <br> (Data Pribadi, 2026)</p>
+                            <p class="image-caption">Persiapan Client <br> (Dokumentasi Pribadi, 2026)</p>
                         </div>
                         <ul>
                             <li>Mempersilahkan klien duduk dan menanyakan keinginannya.</li>
@@ -1201,7 +1240,7 @@
                         <p>Basahi rambut terlebih dahulu, kemudian parting rambut menjadi 4 bagian, dua pada bagian depan dan dua pada bagian belakang. Pada bagian depan garis tengah ditarik menyesuaikan belahan rambut model.</p>
                         <div class="image-container">
                             <img src="images/1.jpg" alt="Basahi dan Parting Rambut">
-                            <p class="image-caption">Basahi dan Parting Rambut <br> (Data Pribadi, 2026)</p>
+                            <p class="image-caption">Basahi dan Parting Rambut <br> (Dokumentasi Pribadi, 2026)</p>
                         </div>
                     </div>
 
@@ -1211,15 +1250,15 @@
                         <div class="technique-images">
                             <div class="technique-img">
                                 <img src="images/2.jpg" alt="Pola Oval Belakang">
-                                <p class="image-caption">Pola Oval Belakang <br> (Data Pribadi, 2026)</p>
+                                <p class="image-caption">Pola Oval Belakang <br> (Dokumentasi Pribadi, 2026)</p>
                             </div>
                             <div class="technique-img">
                                 <img src="images/3.jpg" alt="Pola Oval Samping Kiri">
-                                <p class="image-caption">Pola Oval Samping Kiri <br> (Data Pribadi, 2026)</p>
+                                <p class="image-caption">Pola Oval Samping Kiri <br> (Dokumentasi Pribadi, 2026)</p>
                             </div>
                             <div class="technique-img">
                                 <img src="images/4.jpg" alt="Pola Oval Samping Kanan">
-                                <p class="image-caption">Pola Oval Samping Kanan <br> (Data Pribadi, 2026)</p>
+                                <p class="image-caption">Pola Oval Samping Kanan <br> (Dokumentasi Pribadi, 2026)</p>
                             </div>
                         </div>
                     </div>
@@ -1229,7 +1268,7 @@
                         <p>Setelah pola terbentuk garis pangkasan/desain line, section pertama bagi rambut menjadi tiga bagian.</p>
                         <div class="image-container">
                             <img src="images/5.jpg" alt="Membagi Section Pertama">
-                            <p class="image-caption">Membagi Section Pertama <br> (Data Pribadi, 2026)</p>
+                            <p class="image-caption">Membagi Section Pertama <br> (Dokumentasi Pribadi, 2026)</p>
                         </div>
                     </div>
 
@@ -1238,7 +1277,7 @@
                         <p>Pada bagian tengah lakukan penyisiran tegak lurus tanpa ada pengangkatan dan lakukan pengguntingan rambut ± 5 cm dengan cara penjepitan rambut antara jari telunjuk dan jari tengah: Pastikan posisi tangan kiri jari telunjuk dan jari tengah sejajar mengikuti garis pola pangkasan/desain line "U".</p>
                         <div class="image-container">
                             <img src="images/6.jpg" alt="Pengguntingan Bagian Tengah">
-                            <p class="image-caption">Pengguntingan Bagian Tengah <br> (Data Pribadi, 2026)</p>
+                            <p class="image-caption">Pengguntingan Bagian Tengah <br> (Dokumentasi Pribadi, 2026)</p>
                         </div>
                     </div>
 
@@ -1247,7 +1286,7 @@
                         <p>Dilanjutkan dengan pengguntingan rambut pada bagian samping kiri ditarik sedikit kearah kiri tanpa pengangkatan dengan arah jari telunjuk dan jari tengah mengarah/mengikuti garis pola pangkasan yang telah dibuat.</p>
                         <div class="image-container">
                             <img src="images/7.jpg" alt="Pengguntingan Bagian Samping Kiri">
-                            <p class="image-caption">Pengguntingan Bagian Samping Kiri <br> (Data Pribadi, 2026)</p>
+                            <p class="image-caption">Pengguntingan Bagian Samping Kiri <br> (Dokumentasi Pribadi, 2026)</p>
                         </div>
                     </div>
 
@@ -1256,7 +1295,7 @@
                         <p>Begitu juga dengan bagian samping kanan, rambut disisir dan diarahkan kekanan dengan arah jari telunjuk dan jari tengah mengarah/mengikuti garis pola pangkasan.</p>
                         <div class="image-container">
                             <img src="images/8.jpg" alt="Pengguntingan Bagian Samping Kanan">
-                            <p class="image-caption">Pengguntingan Bagian Samping Kanan <br> (Data Pribadi, 2026)</p>
+                            <p class="image-caption">Pengguntingan Bagian Samping Kanan <br> (Dokumentasi Pribadi, 2026)</p>
                         </div>
                     </div>
 
@@ -1265,7 +1304,7 @@
                         <p>Setelah section pertama selesai digunting berbentuk U, lakukan pengecekan rambut keseimbangan/kepanjangan dengan cara menarik ujung kedua rambut antara kiri dan kanan dibawa ketengah.</p>
                         <div class="image-container">
                             <img src="images/9.jpg" alt="Pengecekan Keseimbangan Rambut">
-                            <p class="image-caption">Pengecekan Keseimbangan Rambut <br> (Data Pribadi, 2026)</p>
+                            <p class="image-caption">Pengecekan Keseimbangan Rambut <br> (Dokumentasi Pribadi, 2026)</p>
                         </div>
                     </div>
 
@@ -1276,11 +1315,11 @@
                         <div class="technique-images">
                             <div class="technique-img">
                                 <img src="images/10.jpg" alt="Pengambilan Section Kedua">
-                                <p class="image-caption">Pengambilan Section Kedua <br> (Data Pribadi, 2026)</p>
+                                <p class="image-caption">Pengambilan Section Kedua <br> (Dokumentasi Pribadi, 2026)</p>
                             </div>
                             <div class="technique-img">
                                 <img src="images/11.jpg" alt="Proses Pengguntingan Per Section">
-                                <p class="image-caption">Proses Pengguntingan Per Section <br> (Data Pribadi, 2026)</p>
+                                <p class="image-caption">Proses Pengguntingan Per Section <br> (Dokumentasi Pribadi, 2026)</p>
                             </div>
                         </div>
                     </div>
@@ -1290,7 +1329,7 @@
                         <p>Setelah selesai pemangkasan, lalu rambut dicuci.</p>
                         <div class="image-container">
                             <img src="images/langkah kerja-9.png" alt="Mencuci Rambut">
-                            <p class="image-caption">Mencuci Rambut <br> (Data Pribadi, 2026)</p>
+                            <p class="image-caption">Mencuci Rambut <br> (Dokumentasi Pribadi, 2026)</p>
                         </div>
                     </div>
 
@@ -1299,7 +1338,7 @@
                         <p>Dilanjutkan mengeringkan rambut klien menggunakan hair dryer.</p>
                         <div class="image-container">
                             <img src="images/langkah-kerja-10 .png" alt="Mengeringkan Rambut">
-                            <p class="image-caption">Mengeringkan Rambut <br> (Data Pribadi, 2026)</p>
+                            <p class="image-caption">Mengeringkan Rambut <br> (Dokumentasi Pribadi, 2026)</p>
                         </div>
                     </div>
 
@@ -1308,7 +1347,7 @@
                         <p>Lalu melakukan styling rambut sesuai keinginan klien.</p>
                         <div class="image-container">
                             <img src="images/langkah-kerja-11.png" alt="Styling Rambut">
-                            <p class="image-caption">Styling Rambut <br> (Data Pribadi, 2026)</p>
+                            <p class="image-caption">Styling Rambut <br> (Dokumentasi Pribadi, 2026)</p>
                         </div>
                     </div>
                 </div>
@@ -1317,11 +1356,11 @@
                 <div class="technique-images">
                     <div class="technique-img">
                         <img src="images/12.jpg" alt="Hasil Pemangkasan Oval 1">
-                        <p class="image-caption">Before <br> (Data Pribadi, 2026)</p>
+                        <p class="image-caption">Before <br> (Dokumentasi Pribadi, 2026)</p>
                     </div>
                     <div class="technique-img">
                         <img src="images/13.jpg" alt="Hasil Pemangkasan Oval 2">
-                        <p class="image-caption">After <br> (Data Pribadi, 2026)</p>
+                        <p class="image-caption">After <br> (Dokumentasi Pribadi, 2026)</p>
                     </div>
                 </div>
 
